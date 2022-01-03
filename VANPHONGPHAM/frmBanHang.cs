@@ -379,7 +379,7 @@ namespace VANPHONGPHAM
                     DateTime tungay = dateEditTuNgay.DateTime.Date;
                     DateTime denngay = dateEditDenNgay.DateTime.Date.AddDays(1);
 
-
+                    // thông báo
                     doc.SetParameterValue("@TUNGAY", tungay);
                     doc.SetParameterValue("@DENNGAY", denngay);
                     Crv.Dock = DockStyle.Fill;
