@@ -116,5 +116,14 @@ namespace DataLayer
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<BANHANG_Result>("BANHANG", tUNGAYParameter, dENNGAYParameter);
         }
+    
+        public virtual ObjectResult<HOADON_Result> HOADON(Nullable<System.DateTime> nGAY)
+        {
+            var nGAYParameter = nGAY.HasValue ?
+                new ObjectParameter("NGAY", nGAY) :
+                new ObjectParameter("NGAY", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<HOADON_Result>("HOADON", nGAYParameter);
+        }
     }
 }

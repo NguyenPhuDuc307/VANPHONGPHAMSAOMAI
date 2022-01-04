@@ -29,11 +29,13 @@ namespace VANPHONGPHAM
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLoading));
             this.progressBarControl = new DevExpress.XtraEditors.MarqueeProgressBarControl();
             this.labelStatus = new DevExpress.XtraEditors.LabelControl();
             this.peImage = new DevExpress.XtraEditors.PictureEdit();
             this.lbTime = new DevExpress.XtraEditors.LabelControl();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.peImage.Properties)).BeginInit();
             this.SuspendLayout();
@@ -82,6 +84,10 @@ namespace VANPHONGPHAM
             this.lbTime.TabIndex = 7;
             this.lbTime.Text = "Starting...";
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            // 
             // frmLoading
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -107,5 +113,6 @@ namespace VANPHONGPHAM
         private DevExpress.XtraEditors.LabelControl labelStatus;
         private DevExpress.XtraEditors.PictureEdit peImage;
         private DevExpress.XtraEditors.LabelControl lbTime;
+        private System.Windows.Forms.Timer timer1;
     }
 }

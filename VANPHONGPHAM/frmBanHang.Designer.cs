@@ -118,6 +118,7 @@ namespace VANPHONGPHAM
             this.btnXoa = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnIN = new DevExpress.XtraEditors.SimpleButton();
             this.btnXoaMH = new DevExpress.XtraEditors.SimpleButton();
             this.btnBoQua = new DevExpress.XtraEditors.SimpleButton();
             this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
@@ -560,10 +561,10 @@ namespace VANPHONGPHAM
             // simpleButton1
             // 
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(422, 36);
+            this.simpleButton1.Location = new System.Drawing.Point(422, 26);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.simpleButton1.Size = new System.Drawing.Size(89, 29);
+            this.simpleButton1.Size = new System.Drawing.Size(89, 44);
             this.simpleButton1.TabIndex = 3;
             this.simpleButton1.Text = "In";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
@@ -838,7 +839,7 @@ namespace VANPHONGPHAM
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.lbThanhTien);
             this.panel2.Location = new System.Drawing.Point(153, 38);
             this.panel2.Name = "panel2";
@@ -847,7 +848,7 @@ namespace VANPHONGPHAM
             // 
             // lbThanhTien
             // 
-            this.lbThanhTien.BackColor = System.Drawing.Color.White;
+            this.lbThanhTien.BackColor = System.Drawing.Color.Transparent;
             this.lbThanhTien.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbThanhTien.Location = new System.Drawing.Point(6, 5);
             this.lbThanhTien.Name = "lbThanhTien";
@@ -1011,6 +1012,7 @@ namespace VANPHONGPHAM
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btnIN);
             this.panel3.Controls.Add(this.btnXoaMH);
             this.panel3.Controls.Add(this.btnBoQua);
             this.panel3.Controls.Add(this.btnLuu);
@@ -1020,6 +1022,17 @@ namespace VANPHONGPHAM
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(852, 44);
             this.panel3.TabIndex = 11;
+            // 
+            // btnIN
+            // 
+            this.btnIN.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnIN.ImageOptions.Image")));
+            this.btnIN.Location = new System.Drawing.Point(264, -1);
+            this.btnIN.Name = "btnIN";
+            this.btnIN.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnIN.Size = new System.Drawing.Size(89, 44);
+            this.btnIN.TabIndex = 11;
+            this.btnIN.Text = "In";
+            this.btnIN.Click += new System.EventHandler(this.btnIN_Click);
             // 
             // btnXoaMH
             // 
@@ -1237,5 +1250,6 @@ namespace VANPHONGPHAM
         private System.Windows.Forms.Timer timer1;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraGrid.Columns.GridColumn dsDVT;
+        private DevExpress.XtraEditors.SimpleButton btnIN;
     }
 }

@@ -361,6 +361,7 @@ namespace VANPHONGPHAM
             this.btnLoaiMH.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnLoaiMH.ImageOptions.LargeImage")));
             this.btnLoaiMH.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnLoaiMH.ImageOptions.SmallImage")));
             this.btnLoaiMH.Name = "btnLoaiMH";
+            this.btnLoaiMH.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnLoaiHang_LinkClicked);
             // 
             // navBarGroup3
             // 
@@ -402,19 +403,18 @@ namespace VANPHONGPHAM
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.label1.Location = new System.Drawing.Point(292, 29);
+            this.label1.Location = new System.Drawing.Point(275, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(827, 48);
-            this.label1.TabIndex = 1;
+            this.label1.Size = new System.Drawing.Size(838, 54);
+            this.label1.TabIndex = 16;
             this.label1.Text = "PHẦN MỀM QUẢN LÝ VĂN PHÒNG PHẨM";
             // 
             // peImage
             // 
             this.peImage.EditValue = ((object)(resources.GetObject("peImage.EditValue")));
-            this.peImage.Location = new System.Drawing.Point(1068, -87);
+            this.peImage.Location = new System.Drawing.Point(1060, -109);
             this.peImage.Margin = new System.Windows.Forms.Padding(4);
             this.peImage.Name = "peImage";
             this.peImage.Properties.AllowFocused = false;
@@ -423,8 +423,8 @@ namespace VANPHONGPHAM
             this.peImage.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.peImage.Properties.ShowMenu = false;
             this.peImage.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
-            this.peImage.Size = new System.Drawing.Size(438, 273);
-            this.peImage.TabIndex = 11;
+            this.peImage.Size = new System.Drawing.Size(512, 312);
+            this.peImage.TabIndex = 17;
             // 
             // splitContainerControl3
             // 
@@ -618,8 +618,6 @@ namespace VANPHONGPHAM
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup3;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup4;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl2;
-        private System.Windows.Forms.Label label1;
-        private DevExpress.XtraEditors.PictureEdit peImage;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl3;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl4;
         private System.Windows.Forms.Panel panel2;
@@ -635,6 +633,8 @@ namespace VANPHONGPHAM
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label6;
+        private DevExpress.XtraEditors.PictureEdit peImage;
+        private System.Windows.Forms.Label label1;
     }
 }
 

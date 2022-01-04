@@ -292,6 +292,9 @@
             </CollectionType>
           </ReturnType>
         </Function>
+        <Function Name="HOADON" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NGAY" Type="datetime" Mode="In" />
+        </Function>
         <Function Name="MATHANG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="MAMH" Type="varchar" Mode="In" />
         </Function>
@@ -413,6 +416,9 @@
           <FunctionImport Name="BANHANG" ReturnType="Collection(VANPHONGPHAM.BANHANG_Result)">
             <Parameter Name="TUNGAY" Mode="In" Type="DateTime" />
             <Parameter Name="DENNGAY" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="HOADON" ReturnType="Collection(VANPHONGPHAM.HOADON_Result)">
+            <Parameter Name="NGAY" Mode="In" Type="DateTime" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="DON_DAT_HANG">
@@ -690,6 +696,17 @@
           <Property Type="Int64" Name="GIABAN" Nullable="false" />
           <Property Type="String" Name="DVT" Nullable="false" MaxLength="10" />
         </ComplexType>
+        <ComplexType Name="HOADON_Result">
+          <Property Type="Int32" Name="SOLUONGMUA" Nullable="false" />
+          <Property Type="String" Name="SDT" Nullable="true" MaxLength="10" />
+          <Property Type="Double" Name="THANHTIEN" Nullable="true" />
+          <Property Type="DateTime" Name="NGAYLAP" Nullable="false" Precision="23" />
+          <Property Type="String" Name="TENKH" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="TENMH" Nullable="false" MaxLength="50" />
+          <Property Type="Int64" Name="GIABAN" Nullable="false" />
+          <Property Type="String" Name="DVT" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="TENNHANVIEN" Nullable="false" MaxLength="30" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -885,6 +902,21 @@
                 <ScalarProperty Name="TENNHANVIEN" ColumnName="TENNHANVIEN" />
                 <ScalarProperty Name="GIABAN" ColumnName="GIABAN" />
                 <ScalarProperty Name="DVT" ColumnName="DVT" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="HOADON" FunctionName="VANPHONGPHAM.Store.HOADON">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VANPHONGPHAM.HOADON_Result">
+                <ScalarProperty Name="SOLUONGMUA" ColumnName="SOLUONGMUA" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="THANHTIEN" ColumnName="THANHTIEN" />
+                <ScalarProperty Name="NGAYLAP" ColumnName="NGAYLAP" />
+                <ScalarProperty Name="TENKH" ColumnName="TENKH" />
+                <ScalarProperty Name="TENMH" ColumnName="TENMH" />
+                <ScalarProperty Name="GIABAN" ColumnName="GIABAN" />
+                <ScalarProperty Name="DVT" ColumnName="DVT" />
+                <ScalarProperty Name="TENNHANVIEN" ColumnName="TENNHANVIEN" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

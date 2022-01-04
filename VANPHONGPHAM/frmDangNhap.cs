@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataLayer;
+using BusinessLayer;
 
 namespace VANPHONGPHAM
 {
@@ -18,8 +20,11 @@ namespace VANPHONGPHAM
             InitializeComponent();
         }
 
+        NHANVIEN _nv;
+
         private void frmDangNhap_Load(object sender, EventArgs e)
         {
+            _nv = new NHANVIEN();
             this.ActiveControl = btnDangNhap;
         }
 
@@ -33,14 +38,15 @@ namespace VANPHONGPHAM
         {
             this.Close();
         }
-
+        string user;
+        string pass;
+        
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             frmMain frm = new frmMain();
             this.Visible = false;
             frm.ShowDialog();
             this.Visible = true;
-
         }
 
         private void btnShow_Click(object sender, EventArgs e)

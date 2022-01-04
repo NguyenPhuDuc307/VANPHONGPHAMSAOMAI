@@ -89,6 +89,9 @@
     <Compile Include="HOADON_MATHANG.cs">
       <DependentUpon>VANPHONGPHAM.tt</DependentUpon>
     </Compile>
+    <Compile Include="HOADON_Result.cs">
+      <DependentUpon>VANPHONGPHAM.tt</DependentUpon>
+    </Compile>
     <Compile Include="HOA_DON.cs">
       <DependentUpon>VANPHONGPHAM.tt</DependentUpon>
     </Compile>

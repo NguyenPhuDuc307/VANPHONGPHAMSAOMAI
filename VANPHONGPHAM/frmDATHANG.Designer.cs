@@ -30,13 +30,13 @@ namespace VANPHONGPHAM
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::VANPHONGPHAM.frmloaddulieu), true, true);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDATHANG));
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::VANPHONGPHAM.frmloaddulieu), true, true);
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -58,6 +58,7 @@ namespace VANPHONGPHAM
             this.dsTENNCC = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dsDVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.dateEditDenNgay = new DevExpress.XtraEditors.DateEdit();
             this.dateEditTuNgay = new DevExpress.XtraEditors.DateEdit();
             this.label5 = new System.Windows.Forms.Label();
@@ -138,6 +139,10 @@ namespace VANPHONGPHAM
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // splashScreenManager1
+            // 
+            splashScreenManager1.ClosingDelay = 100;
             // 
             // panel4
             // 
@@ -290,7 +295,7 @@ namespace VANPHONGPHAM
             this.dsSOLUONG.MinWidth = 25;
             this.dsSOLUONG.Name = "dsSOLUONG";
             this.dsSOLUONG.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "SOLUONG", "TỔNG SỐ LƯỢNG: {0:n0}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "SOLUONG", "TỔNG SL: {0:n0}")});
             this.dsSOLUONG.Visible = true;
             this.dsSOLUONG.VisibleIndex = 6;
             this.dsSOLUONG.Width = 83;
@@ -313,8 +318,6 @@ namespace VANPHONGPHAM
             this.dsTHANHTIEN.Name = "dsTHANHTIEN";
             this.dsTHANHTIEN.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "THANHTIEN", "TỔNG TIỀN: {0:n0}₫")});
-            this.dsTHANHTIEN.Visible = true;
-            this.dsTHANHTIEN.VisibleIndex = 7;
             this.dsTHANHTIEN.Width = 209;
             // 
             // dsMANCC
@@ -347,6 +350,7 @@ namespace VANPHONGPHAM
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.simpleButton1);
             this.groupControl1.Controls.Add(this.dateEditDenNgay);
             this.groupControl1.Controls.Add(this.dateEditTuNgay);
             this.groupControl1.Controls.Add(this.label5);
@@ -357,6 +361,17 @@ namespace VANPHONGPHAM
             this.groupControl1.Size = new System.Drawing.Size(1916, 70);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Thời gian";
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.simpleButton1.Location = new System.Drawing.Point(422, 26);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.simpleButton1.Size = new System.Drawing.Size(89, 44);
+            this.simpleButton1.TabIndex = 4;
+            this.simpleButton1.Text = "In";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // dateEditDenNgay
             // 
@@ -850,10 +865,6 @@ namespace VANPHONGPHAM
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // splashScreenManager1
-            // 
-            splashScreenManager1.ClosingDelay = 100;
-            // 
             // frmDATHANG
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -975,5 +986,6 @@ namespace VANPHONGPHAM
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label8;
         private DevExpress.XtraGrid.Columns.GridColumn dsDVT;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }

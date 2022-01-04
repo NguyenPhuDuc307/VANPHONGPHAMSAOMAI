@@ -116,6 +116,7 @@ namespace VANPHONGPHAM
             timer1.Enabled = true;
             timer1.Start();
             label7.Text = DateTime.Now.ToLongTimeString();
+            lbThoiGian.Text = DateTime.Now.ToLongTimeString();
         }
 
         private void dateEditTuNgay_DateTimeChanged(object sender, EventArgs e)
@@ -235,6 +236,7 @@ namespace VANPHONGPHAM
         {
             btnThem.Enabled = t;
             btnLuu.Enabled = !t;
+            btnIN.Enabled = !t;
             btnBoQua.Enabled = !t;
             btnXoaMH.Enabled = !t;
         }
@@ -255,26 +257,28 @@ namespace VANPHONGPHAM
             gcDanhSachMuaHang.DataSource = _hdmh.getAll(0);
         }
 
+        DateTime ngay = DateTime.Now;
+
         private void btnThem_Click(object sender, EventArgs e)
         {
+            ngay = DateTime.Now;
             _them = true;
             reset(true);
             enable(true);
             showHideControl(false);
-
+            btnIN.Enabled = false;
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
             _them = true;
             saveData();
-            tabControl.SelectedTabPage = tabDanhSach;
             loadData();
             showHideControl(true);
-            reset(true);
             enable(false);
-            listHDMH.Clear();
+            btnIN.Enabled = true;
             objMain.loadChart();
+            btnBoQua.Enabled = true;
         }
 
 
@@ -308,6 +312,10 @@ namespace VANPHONGPHAM
             reset(true);
             enable(false);
             showHideControl(true);
+            btnIN.Enabled = false;
+            tabControl.SelectedTabPage = tabDanhSach;
+            reset(true);
+            listHDMH.Clear();
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -338,6 +346,7 @@ namespace VANPHONGPHAM
         {
             string a = "";
             label7.Text = DateTime.Now.ToLongTimeString();
+            lbThoiGian.Text = DateTime.Now.ToLongTimeString();
             if (DateTime.Now.Hour > 5 && DateTime.Now.Hour <= 10)
                 a = "Good morning";
             else if (DateTime.Now.Hour > 10 && DateTime.Now.Hour <= 17)
@@ -377,11 +386,61 @@ namespace VANPHONGPHAM
                 try
                 {
                     DateTime tungay = dateEditTuNgay.DateTime.Date;
-                    DateTime denngay = dateEditDenNgay.DateTime.Date.AddDays(1);
+                    DateTime denngay = dateEditDenNgay.DateTime.Date;
 
                     // thông báo
                     doc.SetParameterValue("@TUNGAY", tungay);
                     doc.SetParameterValue("@DENNGAY", denngay);
+                    Crv.Dock = DockStyle.Fill;
+                    Crv.ReportSource = doc;
+                    frm.Controls.Add(Crv);
+                    Crv.Refresh();
+                    frm.Text = _tieude;
+                    frm.WindowState = FormWindowState.Maximized;
+                    frm.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                }
+            }
+            else
+                MessageBox.Show("Không có dữ liệu.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void btnIN_Click(object sender, EventArgs e)
+        {
+            XuatReportHD("ReportHD", "IN HÓA ĐƠN");
+            tabControl.SelectedTabPage = tabDanhSach;
+            reset(true);
+            listHDMH.Clear();
+        }
+
+        private void XuatReportHD(string _reportName, string _tieude)
+        {
+            if (_mamh != null || _mamh == null)
+            {
+                Form frm = new Form();
+                CrystalReportViewer Crv = new CrystalReportViewer();
+                Crv.ShowGroupTreeButton = false;
+                Crv.ShowParameterPanelButton = false;
+                Crv.ToolPanelView = ToolPanelViewType.None;
+                TableLogOnInfo Thongtin;
+                ReportDocument doc = new ReportDocument();
+                doc.Load(System.Windows.Forms.Application.StartupPath + "\\Reports\\" + _reportName + @".rpt");
+                Thongtin = doc.Database.Tables[0].LogOnInfo;
+                Thongtin.ConnectionInfo.ServerName = myFun._srv;
+                Thongtin.ConnectionInfo.UserID = myFun._us;
+                Thongtin.ConnectionInfo.Password = myFun._pw;
+                Thongtin.ConnectionInfo.DatabaseName = myFun._db;
+                doc.Database.Tables[0].ApplyLogOnInfo(Thongtin);
+                try
+                {
+                    DateTime tungay = dateEditTuNgay.DateTime.Date;
+                    DateTime denngay = dateEditDenNgay.DateTime.Date;
+
+                    // thông báo
+                    doc.SetParameterValue("@NGAY", ngay);
                     Crv.Dock = DockStyle.Fill;
                     Crv.ReportSource = doc;
                     frm.Controls.Add(Crv);
