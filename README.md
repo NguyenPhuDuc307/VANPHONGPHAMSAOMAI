@@ -227,7 +227,7 @@ Các tài khoản khác:
 
 Để được hỗ trợ, vui lòng liên hệ:
 - **Điện thoại**: 0964732241
-- **Email**: vanphongpham1911@gmail.com
+- **Email**: nguyenphuduc62001@gmail.com
 
 ## Phiên bản
 
